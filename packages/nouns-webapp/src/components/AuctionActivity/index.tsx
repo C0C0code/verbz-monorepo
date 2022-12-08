@@ -48,6 +48,8 @@ const AuctionActivity: React.FC<AuctionActivityProps> = (props: AuctionActivityP
     onNextAuctionClick,
     displayGraphDepComps,
   } = props;
+  
+  console.log({isLastAuction})
 
   const isCool = useAppSelector(state => state.application.isCoolBackground);
 

@@ -114,6 +114,7 @@ const ChainSubscriber: React.FC = () => {
 
   const loadState = async () => {
     const wsProvider = new WebSocketProvider(config.app.wsRpcUri);
+    console.log({config})
     const nounsAuctionHouseContract = NounsAuctionHouseFactory.connect(
       config.addresses.nounsAuctionHouseProxy,
       wsProvider,
@@ -141,6 +142,7 @@ const ChainSubscriber: React.FC = () => {
       startTime: BigNumberish,
       endTime: BigNumberish,
     ) => {
+      console.log({nounId, startTime, endTime})
       dispatch(
         setActiveAuction(reduxSafeNewAuction({ nounId, startTime, endTime, settled: false })),
       );
@@ -158,6 +160,7 @@ const ChainSubscriber: React.FC = () => {
 
     // Fetch the current auction
     const currentAuction = await nounsAuctionHouseContract.auction();
+    console.log({currentAuction})
     dispatch(setFullAuction(reduxSafeAuction(currentAuction)));
     dispatch(setLastAuctionNounId(currentAuction.nounId.toNumber()));
 

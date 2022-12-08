@@ -15,6 +15,7 @@ const onDisplayAuction = createSlice({
   initialState: initialState,
   reducers: {
     setLastAuctionNounId: (state, action: PayloadAction<number>) => {
+      console.log({action})
       state.lastAuctionNounId = action.payload;
     },
     setOnDisplayAuctionNounId: (state, action: PayloadAction<number>) => {

@@ -23,11 +23,15 @@ interface AuctionProps {
 
 const Auction: React.FC<AuctionProps> = props => {
   const { auction: currentAuction } = props;
+  
+  console.log({currentAuction})
 
   const history = useHistory();
   const dispatch = useAppDispatch();
   let stateBgColor = useAppSelector(state => state.application.stateBackgroundColor);
   const lastNounId = useAppSelector(state => state.onDisplayAuction.lastAuctionNounId);
+
+  console.log({lastNounId})
 
   const loadedNounHandler = (seed: INounSeed) => {
     dispatch(setStateBackgroundColor(seed.background === 0 ? grey : beige));
